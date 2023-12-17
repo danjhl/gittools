@@ -1,0 +1,16 @@
+#!/bin/bash
+
+files=$(git diff --name-only)
+
+if [ ! -z "$files" ]
+then
+	files="$files\n"
+fi
+
+printf "$files$(git ls-files -o --exclude-standard)" \
+	| fzf -m --ansi \
+		--bind "ctrl-a:select-all" \
+		--bind "ctrl-d:deselect-all" \
+		--preview 'd=$(git --no-pager diff --color=always {});[ -z "$d" ] && cat {} || echo "$d"' \
+		--preview-window "right:65%" \
+	| xargs -I {} git add {}
