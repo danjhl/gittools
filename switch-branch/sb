@@ -1,2 +1,2 @@
 #!/bin/bash
-git switch $(git branch -a | sed 's/  \(remotes\/origin\/\)\?\(.*\)/\2/g' | fzf)
+git switch $(git branch -a --format='%(refname:short)' | sed 's/\(origin\/\)\?\(.*\)/\2/g' | sort -u | fzf)
