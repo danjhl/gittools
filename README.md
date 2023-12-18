@@ -1,2 +1,2 @@
-Repository of some personal git productivy scripts.
+Repository of some personal git productivity scripts.
 
