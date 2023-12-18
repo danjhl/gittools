@@ -1,0 +1,2 @@
+#!/bin/bash
+git log --pretty='format:%h %s' | fzf --ansi --preview "git --no-pager show --color=always \$(cut -d' ' -f1 <<< {})" --preview-window "right:65%" | cut -d' ' -f1 | xargs -I '{}' git --no-pager show --color=always '{}'
