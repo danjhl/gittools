@@ -1,0 +1,2 @@
+#!/bin/bash
+git switch $(git branch -a | sed 's/  \(remotes\/origin\/\)\?\(.*\)/\2/g' | fzf)
