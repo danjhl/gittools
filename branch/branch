@@ -1,0 +1,11 @@
+#!/bin/bash
+br=$(git branch -r --format='%(refname:short)' | fzf)
+op=$(printf "merge selected into current\nrebase current onto selected" | fzf)
+
+if [ "$op" == "merge selected into current" ]
+then 
+    git merge $br
+elif [ "$op" == "rebase current onto selected" ]
+then
+    git rebase --onto $br $(git branch --show) 
+fi
