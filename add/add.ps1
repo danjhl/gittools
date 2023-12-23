@@ -4,7 +4,7 @@ $combined = $files + $untracked
 
 $preview = 'echo -------- Diff ---------- & ' + `
     'git --no-pager diff --color=always {} & echo. & ' + `
-    'echo -------- Content ------- & echo. & type {}'
+    'echo -------- Content ------- & echo. & add_fzf_preview.bat {}'
 
 $selected = $($combined.trim().replace(" ", "`n") `
     | fzf -m --ansi --bind "ctrl-a:select-all" `
