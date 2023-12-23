@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Script to select a branch and an
+# action to do with the selected branch.
+#
+# Scripts accepts arguments for branch selection see $a.
+
 # Options
 merge="merge selected into current"
 rebase="rebase current onto selected"
@@ -8,7 +13,7 @@ a="-r"
 
 if [ "$#" -gt 0 ]
 then
-    a=$1
+    a=$@
 fi
 
 br=$(git branch $a --format='%(refname:short)' | fzf)

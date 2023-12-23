@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Script to quickly add
+# changes or files to staging area
+
 files=$(git diff --name-only)
 
 if [ ! -z "$files" ]
