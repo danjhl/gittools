@@ -1,0 +1,2 @@
+#!/bin/bash
+git branch $@ --format='%(refname:short)' | fzf -m --bind "ctrl-a:select-all" --bind "ctrl-d:deselect-all"
