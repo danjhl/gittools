@@ -1,2 +1,5 @@
 #!/bin/bash
+
+# Script to select one ore more branches to return.
+
 git branch $@ --format='%(refname:short)' | fzf -m --bind "ctrl-a:select-all" --bind "ctrl-d:deselect-all"
