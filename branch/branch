@@ -3,7 +3,7 @@
 # Script to select a branch and an
 # action to do with the selected branch.
 #
-# Scripts accepts arguments for branch selection see $a.
+# Script accepts arguments for branch selection see $a.
 
 # Options
 merge="merge selected into current"
@@ -30,5 +30,5 @@ then
     git merge $br
 elif [ "$op" == "$rebase" ]
 then
-    git rebase --onto $br $(git branch --show) 
+    git rebase $br
 fi

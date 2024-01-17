@@ -1,4 +1,3 @@
-
 # Options
 $merge = "merge selected into current"
 $rebase = "rebase current onto selected"
@@ -17,7 +16,7 @@ if (!$br) {
 $op = $("$merge`n$rebase" | fzf)
 
 if ($op -eq $merge) {
-    merge $br
+    git merge $br
 } elseif ($op -eq $rebase) {
-    rebase --onto $br $(git branch --show)
+    git rebase $br
 }
